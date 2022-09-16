@@ -1,13 +1,15 @@
 
 import DashboardContent from "./dashboardLayout"
 import './App.css'
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+} from "react-router-dom";
+import routes from "./router/router";
+
 export default function Dashboard() {
-  return <DashboardContent >
-    <div>
-      <h1>
-        page 1
-      </h1>
-    </div>
-  </DashboardContent>;
+  const router = createBrowserRouter(routes)
+  return<RouterProvider router={router} />
 }
 

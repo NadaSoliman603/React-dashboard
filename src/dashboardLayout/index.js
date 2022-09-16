@@ -27,6 +27,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import LanguageIcon from '@mui/icons-material/Language';
 import ListItemText from '@mui/material/ListItemText';
 import { Collapse } from '@mui/material';
+import { Link, NavLink } from 'react-router-dom';
+import ListItemLink from './components/ListItemLink';
 const mdTheme = createTheme();
 
 function DashboardContent({ children }) {
@@ -60,58 +62,58 @@ function DashboardContent({ children }) {
     height: "64px",
     position: "fixed",
     top: "0px",
-    backgroundColor:"#fff"
+    backgroundColor: "#fff"
   };
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-    
-        <Drawer variant="permanent" open={open}>
-         
-        <AppBar  direction={direction} position="fixed" open={open}>
-          <Toolbar
 
-            sx={{
-              pr: '24px', // keep right padding when drawer closed
-            }}
-          >
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleDrawer}
+        <Drawer variant="permanent" open={open}>
+
+          <AppBar direction={direction} position="fixed" open={open}>
+            <Toolbar
+
               sx={{
-                marginX: '20px',
-                ...(open && { display: 'none' }),
+                pr: '24px', // keep right padding when drawer closed
               }}
             >
-              <MenuIcon />
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                onClick={toggleDrawer}
+                sx={{
+                  marginX: '20px',
+                  ...(open && { display: 'none' }),
+                }}
+              >
+                <MenuIcon />
 
 
-            </IconButton>
-            <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              sx={{ flexGrow: 1 }}
-            >
-              Dashboard
-            </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-          </Toolbar>
-       
-       
-       
-        </AppBar>
+              </IconButton>
+              <Typography
+                component="h1"
+                variant="h6"
+                color="inherit"
+                noWrap
+                sx={{ flexGrow: 1 }}
+              >
+                Dashboard
+              </Typography>
+              <IconButton color="inherit">
+                <Badge badgeContent={4} color="secondary">
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+            </Toolbar>
 
 
-        <Toolbar
+
+          </AppBar>
+
+
+          <Toolbar
             style={toolBarStyle}
             sx={{
               display: 'flex',
@@ -126,32 +128,10 @@ function DashboardContent({ children }) {
           </Toolbar>
 
           <Divider />
-       
+
           <List component="nav">
 
-            {mainListItems}
-
-
-            <Divider sx={{ my: 1 }} />
-
-
-
-            <ListItemButton onClick={handleClick}>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
-              <ListItemText primary="Inbox" />
-              {openColaps ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-
-            <Collapse in={openColaps} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                {secondaryListItems}
-                {mainListItems}
-
-                {mainListItems}
-              </List>
-            </Collapse>
+            <ListItemLink title="users" to={"users"} />
 
 
 
@@ -164,6 +144,10 @@ function DashboardContent({ children }) {
 
 
           </List>
+
+
+
+
         </Drawer>
 
         <Box
