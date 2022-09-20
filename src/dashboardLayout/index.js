@@ -29,6 +29,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { Collapse } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
 import ListItemLink from './components/ListItemLink';
+import routes from './../router/router';
 const mdTheme = createTheme();
 
 function DashboardContent({ children }) {
@@ -130,8 +131,10 @@ function DashboardContent({ children }) {
           <Divider />
 
           <List component="nav">
+            
+            {routes.map(item=> <ListItemLink title={item.name} to={item.path} />)}
 
-            <ListItemLink title="users" to={"users"} />
+
 
 
 

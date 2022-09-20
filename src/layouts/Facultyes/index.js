@@ -1,10 +1,11 @@
 import React from 'react';
+import DashboardContent from '../../dashboardLayout';
 
 const index = (props) => {
     return (
-        <div >
-            <p>Profile</p>
-        </div>
+        <DashboardContent >
+            <p>faculty</p>
+        </DashboardContent>
     );
 }
 
