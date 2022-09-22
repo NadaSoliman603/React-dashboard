@@ -18,6 +18,7 @@ export const ContextProvider = ({children})=>{
     const [currentMode, setCurrentMode] = useState('Light');
     const [themeSettings, setThemeSettings] = useState(false);
     const [isClicked, setIsClicked] = useState(initialState);
+    const [direction, setDirection] = useState('rtl')
 
     const setMode = (e)=>{
         setCurrentMode(e.target.value)
@@ -30,7 +31,7 @@ export const ContextProvider = ({children})=>{
         setThemeSettings(false)
     }
     return (
-        <StateContext.Provider value={{setColor ,setMode , isClicked, setIsClicked ,currentMode, setCurrentMode,currentColor, setCurrentColor , setThemeSettings , themeSettings , activeMenu , setActiveMenu , screenSize, setScreenSize}}>
+        <StateContext.Provider value={{direction, setDirection ,setColor ,setMode , isClicked, setIsClicked ,currentMode, setCurrentMode,currentColor, setCurrentColor , setThemeSettings , themeSettings , activeMenu , setActiveMenu , screenSize, setScreenSize}}>
             {children}
         </StateContext.Provider>
     )

@@ -6,13 +6,13 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { themeColors } from '../data/dummy';
 import { useStateContext } from '../context/ContextProvider';
 export const ThemeSettings = () => {
-  const { setColor, setMode, currentMode, currentColor, setThemeSettings } = useStateContext()
+  const { setColor, setMode, currentMode, currentColor, setThemeSettings , direction  , setDirection} = useStateContext()
   return (
-    <div className='fixed bg-half-transparent w-screen nav-item top-0 right-0 '
+    <div className= {`fixed bg-half-transparent w-screen nav-item top-0  right-0 ` }
     >
-      <div className="float-right h-screen dark:text-gray-200  bg-white dark:bg-[#484B52] w-400">
+      <div className={`${direction === "rtl" ? 'float-left' : 'float-right'}  h-screen dark:text-gray-200  bg-white dark:bg-[#484B52] w-400` }>
 
-        <div className="flex justify-between items-center p-4 ml-4">
+        <div className={`flex justify-between items-center p-4 ml-4 ${  direction === "rtl" ? "flex-row-reverse" :""} `}>
           <p className="font-semibold text-xl">Settings</p>
           <button
             type="button"
@@ -73,6 +73,40 @@ export const ThemeSettings = () => {
             ))}
           </div>
         </div>
+
+
+        <div className='flex-col border-t-1 p-4 ml-4'>
+          <p className='font-semibold text-lg'> Languge Options </p>
+          <div className='flex gap-3 '>
+          <button 
+                    onClick={()=>{ 
+                      setDirection('ltr')
+                      setThemeSettings(false)
+                    }}
+                    style={{
+                      backgroundColor : direction === "ltr" ? currentColor : "#fff" ,
+                      color : direction === "ltr" ? "#fff" : currentColor
+                    }}
+                   type='button' className=' px-3 py-1 cursor-pointer rounded-xl '>
+                      English
+                  </button>
+
+                  <button 
+                    onClick={()=>{
+                      setDirection("rtl") 
+                      setThemeSettings(false)
+                    }}
+                    style={{
+                      backgroundColor : direction === "rtl" ? currentColor : "#fff" , 
+                      color : direction === "rtl" ? "#fff" : currentColor
+                    }}
+                   type='button' className=' px-3 py-1  cursor-pointer rounded-xl'>
+                      عربى
+                  </button>
+          </div>
+        </div>
+
+
       </div>
     </div>
   )

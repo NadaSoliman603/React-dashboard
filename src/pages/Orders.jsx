@@ -7,7 +7,7 @@ import { Header } from '../components';
 export const Orders = () => {
   return (
     <div className='mt-4  md:m-10  md:p-1 bg-white rounded-3xl'>
-      <Header cartegory="Page" title="Orders"/>
+      <Header category="Page" title="Orders"/>
       <GridComponent
         id="gridcomp"
         dataSource={ordersData}

@@ -5,8 +5,8 @@ import { customersData, customersGrid } from '../data/dummy';
 import { Header } from '../components';
 export const Customers = () => {
   return (
-<div className='mt-10 m-2 md:m-4 p-2 md:p-10 bg-white rounded-3xl'>
-    <Header cartegory="Page" title="Employees"/>
+<div className='dark:bg-secondary-dark-b mt-10 m-2 md:m-4 p-2 md:p-10 bg-white rounded-3xl'>
+    <Header category="Page" title="Employees"/>
     <GridComponent
       dataSource={customersData}
       allowPaging

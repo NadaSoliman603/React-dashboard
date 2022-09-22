@@ -6,8 +6,8 @@ import { Header } from '../components';
 
 export const Employees = () => {
   return (
-    <div className='mt-10 m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
-    <Header cartegory="Page" title="Employees"/>
+    <div className='dark:bg-secondary-dark-b mt-10 m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
+    <Header category="Page" title="Employees"/>
     <GridComponent
       dataSource={employeesData}
       allowPaging
