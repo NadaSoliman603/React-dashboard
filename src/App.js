@@ -9,11 +9,10 @@ import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { useStateContext } from './context/ContextProvider';
 
 export default function App() {
-  // const activeMenu = true
-  const {activeMenu} = useStateContext()
+  const {currentMode ,activeMenu , setThemeSettings , themeSettings , currentColor} = useStateContext()
   return (
     <>
-    <div className={''}>
+    <div className={currentMode === "Dark" ?'dark' : ''}>
     <BrowserRouter>
       <div className="flex relative dark:bg-main-dark-bg">
         <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>
@@ -23,8 +22,8 @@ export default function App() {
           >
             <button
               type="button"
-              // onClick={() => setThemeSettings(true)}
-              // style={{ background: currentColor, borderRadius: '50%' }}
+              onClick={() => setThemeSettings(true)}
+              style={{ backgroundColor:  currentColor, borderRadius: '50%' }}
               className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
             >
               <FiSettings />
@@ -47,14 +46,14 @@ export default function App() {
           className={
             activeMenu
               ? 'dark:bg-main-dark-bg bg-light-gray  min-h-screen md:ml-72 w-full  '
-              : 'bg-main-bg dark:bg-main-dark-bg bg-light-gray  w-full min-h-screen flex-2 '
+              : ' dark:bg-main-dark-bg bg-light-gray  w-full min-h-screen flex-2 '
           }
         >
-          <div className="fixed md:static  bg-main-bg dark:bg-main-dark-bg navbar w-full ">
+          <div className="fixed md:static  bg-light-gray dark:bg-main-dark-bg navbar w-full ">
             <Navbar />
           </div>
           <div >
-            {/* {themeSettings && (<ThemeSettings />)} */}
+            {themeSettings && (<ThemeSettings />)}
 
             <Routes>
               {/* dashboard  */}

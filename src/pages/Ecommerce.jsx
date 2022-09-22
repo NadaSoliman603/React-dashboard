@@ -4,10 +4,12 @@ import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropd
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { IoIosMore } from 'react-icons/io';
+import { useStateContext } from '../context/ContextProvider';
 // const bunerImage = require('../assets/buner.png')
 export const Ecommerce = () => {
+  const {currentColor} = useStateContext()
   return (
-    <div className="pt-24 bg-light-gray">
+    <div className="pt-24">
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">
 
         <div
@@ -23,7 +25,7 @@ export const Ecommerce = () => {
           <div className='mt-2'>
             <Button
               color="white"
-              bgColor="blue"
+              bgColor={currentColor}
               text="Download"
               borderRadius="10px"
               size="md"
@@ -97,13 +99,13 @@ export const Ecommerce = () => {
             </div>
             <div className='mt-5'>
               <SparkLine
-                currentColor={"blue"} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={"blue"}
+                currentColor={{currentColor}} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={{currentColor}}
               />
             </div>
             <div className='mt-10'>
               <Button
                 color="white"
-                bgColor="blue"
+                bgColor={currentColor}
                 text="Download Report"
                 borderRadius="10px"
                 size="md"
