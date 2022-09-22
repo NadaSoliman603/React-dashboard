@@ -1,13 +1,4 @@
-// /** @type {import('tailwindcss').Config} */
-// module.exports = {
-//   content: [],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
 
-// craco.config.js
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
@@ -21,7 +12,8 @@ module.exports = {
         14: '14px',
       },
       backgroundColor: {
-        'main-bg': '#FAFBFB',
+        // 'main-bg': '#FAFBFB',
+        'main-bg': '#fbfbfb',
         'main-dark-bg': '#20232A',
         'secondary-dark-bg': '#33373E',
         'light-gray': '#F7F7F7',
@@ -50,7 +42,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero-pattern':
-          "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
+          "url('../src/assets/buner.png')",
       },
     },
   },

@@ -29,6 +29,21 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 export const Navbar = () => {
   const { currentColor, activeMenu, setActiveMenu, handleClick, isClicked, setScreenSize, screenSize } = useStateContext();
 
+  useEffect(()=>{
+    const handleResize  = ()=>setScreenSize(window.innerWidth)
+    window.addEventListener('resize' , handleResize)
+    handleResize()
+    return ()=>window.removeEventListener('resize', handleResize)
+  },[])
+
+  useEffect(()=>{
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  },[screenSize])
+
   const handleActiveMenu = ()=>{setActiveMenu(pre=>!pre)}
   return (
     <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
