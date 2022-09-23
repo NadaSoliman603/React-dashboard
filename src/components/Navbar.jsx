@@ -27,7 +27,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   </TooltipComponent>
 );
 export const Navbar = () => {
-  const { currentColor, activeMenu, setActiveMenu, handleClick, isClicked, setScreenSize, screenSize } = useStateContext();
+  const {direction ,  currentColor, activeMenu, setActiveMenu, handleClick, isClicked, setScreenSize, screenSize } = useStateContext();
 
   useEffect(()=>{
     const handleResize  = ()=>setScreenSize(window.innerWidth)
@@ -66,9 +66,10 @@ export const Navbar = () => {
             alt="user-profile"
           />
           <p>
-            <span className="text-gray-400 text-14">Hi,</span>{' '}
+            <span className="text-gray-400 text-14">{direction === "rtl" ?"مرحبا," : "Hi," }</span>{' '}
             <span className="text-gray-400 font-bold ml-1 text-14">
-              Michael
+      
+              {direction === "rtl" ?"على" : "Ali" }
             </span>
           </p>
           <MdKeyboardArrowDown className="text-gray-400 text-14" />

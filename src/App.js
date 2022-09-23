@@ -66,7 +66,7 @@ export default function App() {
             <Routes>
               {/* dashboard  */}
               <Route path="/" element={(<Ecommerce />)} />
-              <Route path="/ecommerce" element={(<Ecommerce />)} />
+              <Route path="/ecommerce"   element={(<Ecommerce />)} />
 
               {/* pages  */}
               <Route path="/orders" element={<Orders />} />
@@ -88,6 +88,29 @@ export default function App() {
               <Route path="/color-mapping" element={<ColorMapping />} />
               <Route path="/pyramid" element={<Pyramid />} />
               <Route path="/stacked" element={<Stacked />} />
+
+              <Route path='التجارة الإلكترونية'   element={(<Ecommerce />)} />
+
+              {/* pages  */}
+              <Route path="/طلبات" element={<Orders />} />
+              <Route path="/الموظفين" element={<Employees />} />
+              <Route path="/العملاء" element={<Customers />} />
+
+              {/* apps  */}
+              <Route path="/المهام" element={<Kanban />} />
+              <Route path="/تحرير" element={<Editor />} />
+              <Route path="/أداة انتقاء اللون" element={<Calendar />} />
+              <Route path="/الرسوم البيانية" element={<ColorPicker />} />
+
+              {/* charts  */}
+              <Route path="/خطوط" element={<Line />} />
+              <Route path="/مخطط المنطقة" element={<Area />} />
+              <Route path="/منطقة" element={<Bar />} />
+              <Route path="/مخطط دائري" element={<Pie />} />
+              <Route path="/خط المخزون" element={<Financial />} />
+              <Route path="/تعيين الألوان " element={<ColorMapping />} />
+              <Route path="/مخطط هرمى" element={<Pyramid />} />
+              <Route path="/مخطط مكدس" element={<Stacked />} />
 
             </Routes>
           </div>

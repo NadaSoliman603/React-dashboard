@@ -18,7 +18,7 @@ export const ContextProvider = ({children})=>{
     const [currentMode, setCurrentMode] = useState('Light');
     const [themeSettings, setThemeSettings] = useState(false);
     const [isClicked, setIsClicked] = useState(initialState);
-    const [direction, setDirection] = useState('rtl')
+    const [direction, setDirection] = useState('ltr')
 
     const setMode = (e)=>{
         setCurrentMode(e.target.value)
