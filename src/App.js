@@ -8,119 +8,79 @@ import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Ka
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { useStateContext } from './context/ContextProvider';
 import { useEffect } from 'react';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
 
 export default function App() {
-  const {direction ,currentMode ,activeMenu , setThemeSettings , themeSettings , currentColor} = useStateContext()
-  
+  const { direction, currentMode, activeMenu, setThemeSettings, themeSettings, currentColor } = useStateContext()
+
   useEffect(() => {
     console.log(direction)
     document.body.setAttribute("dir", direction);
   }, [direction]);
 
   return (
-    <>
-    <div className={currentMode === "Dark" ?'dark' : ''}>
     <BrowserRouter>
-      <div className="flex relative dark:bg-main-dark-bg ">
-        <div className={`fixed bottom-4  ${direction === "rtl" ? 'left-4' : 'right-4'} `} style={{ zIndex: '1000' }}>
-          <TooltipComponent
-            content="Settings"
-            position="Top"
-          >
-            <button
-              type="button"
-              onClick={() => setThemeSettings(true)}
-              style={{ backgroundColor:  currentColor, borderRadius: '50%' }}
-              className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
-            >
-              <FiSettings />
-            </button>
+      <Routes>
+        {/* dashboard  */}
+        <Route path="/login" element={(<Login />)} />
 
-          </TooltipComponent>
-        </div>
+        <Route path="/" element={(<Dashboard />)} >
+          {/* dashboard  */}
+          <Route path="/" element={(<Ecommerce />)} />
+          <Route path="/ecommerce" element={(<Ecommerce />)} />
+          {/* pages  */}
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/employees" element={<Employees />} />
+          <Route path="/customers" element={<Customers />} />
 
-        {activeMenu ? (
-          <div className={`w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white right-0  ${direction === "rtl" ? "right-0" : "left-0"}`}>
-            <Sidebar />
-          </div>
-        ) : (
-          <div className="w-0 dark:bg-secondary-dark-bg">
-            <Sidebar />
-          </div>
-        )}
+          {/* apps  */}
+          <Route path="/kanban" element={<Kanban />} />
+          <Route path="/editor" element={<Editor />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/color-picker" element={<ColorPicker />} />
 
-        <div
-          className={
-            activeMenu
-              ? `dark:bg-main-dark-bg bg-light-gray  min-h-screen   w-full ${direction === "rtl" ? "md:mr-72" :"md:ml-72"} `
-              : ' dark:bg-main-dark-bg bg-light-gray  w-full min-h-screen flex-2 '
-          }
-        >
-          <div className="fixed md:static  bg-light-gray dark:bg-main-dark-bg navbar w-full ">
-            <Navbar />
-          </div>
-          
-          <div >
-            {themeSettings && (<ThemeSettings />)}
+          {/* charts  */}
+          <Route path="/line" element={<Line />} />
+          <Route path="/area" element={<Area />} />
+          <Route path="/bar" element={<Bar />} />
+          <Route path="/pie" element={<Pie />} />
+          <Route path="/financial" element={<Financial />} />
+          <Route path="/color-mapping" element={<ColorMapping />} />
+          <Route path="/pyramid" element={<Pyramid />} />
+          <Route path="/stacked" element={<Stacked />} />
 
-            <Routes>
-              {/* dashboard  */}
-              <Route path="/" element={(<Ecommerce />)} />
-              <Route path="/ecommerce"   element={(<Ecommerce />)} />
+          <Route path='التجارة الإلكترونية' element={(<Ecommerce />)} />
 
-              {/* pages  */}
-              <Route path="/orders" element={<Orders />} />
-              <Route path="/employees" element={<Employees />} />
-              <Route path="/customers" element={<Customers />} />
+          {/* pages  */}
+          <Route path="/طلبات" element={<Orders />} />
+          <Route path="/الموظفين" element={<Employees />} />
+          <Route path="/العملاء" element={<Customers />} />
 
-              {/* apps  */}
-              <Route path="/kanban" element={<Kanban />} />
-              <Route path="/editor" element={<Editor />} />
-              <Route path="/calendar" element={<Calendar />} />
-              <Route path="/color-picker" element={<ColorPicker />} />
+          {/* apps  */}
+          <Route path="/المهام" element={<Kanban />} />
+          <Route path="/تحرير" element={<Editor />} />
+          <Route path="/أداة انتقاء اللون" element={<Calendar />} />
+          <Route path="/الرسوم البيانية" element={<ColorPicker />} />
 
-              {/* charts  */}
-              <Route path="/line" element={<Line />} />
-              <Route path="/area" element={<Area />} />
-              <Route path="/bar" element={<Bar />} />
-              <Route path="/pie" element={<Pie />} />
-              <Route path="/financial" element={<Financial />} />
-              <Route path="/color-mapping" element={<ColorMapping />} />
-              <Route path="/pyramid" element={<Pyramid />} />
-              <Route path="/stacked" element={<Stacked />} />
+          {/* charts  */}
+          <Route path="/خطوط" element={<Line />} />
+          <Route path="/مخطط المنطقة" element={<Area />} />
+          <Route path="/منطقة" element={<Bar />} />
+          <Route path="/مخطط دائري" element={<Pie />} />
+          <Route path="/خط المخزون" element={<Financial />} />
+          <Route path="/تعيين الألوان " element={<ColorMapping />} />
+          <Route path="/مخطط هرمى" element={<Pyramid />} />
+          <Route path="/مخطط مكدس" element={<Stacked />} />
 
-              <Route path='التجارة الإلكترونية'   element={(<Ecommerce />)} />
+          {/* </Routes> */}
+        </Route>
 
-              {/* pages  */}
-              <Route path="/طلبات" element={<Orders />} />
-              <Route path="/الموظفين" element={<Employees />} />
-              <Route path="/العملاء" element={<Customers />} />
-
-              {/* apps  */}
-              <Route path="/المهام" element={<Kanban />} />
-              <Route path="/تحرير" element={<Editor />} />
-              <Route path="/أداة انتقاء اللون" element={<Calendar />} />
-              <Route path="/الرسوم البيانية" element={<ColorPicker />} />
-
-              {/* charts  */}
-              <Route path="/خطوط" element={<Line />} />
-              <Route path="/مخطط المنطقة" element={<Area />} />
-              <Route path="/منطقة" element={<Bar />} />
-              <Route path="/مخطط دائري" element={<Pie />} />
-              <Route path="/خط المخزون" element={<Financial />} />
-              <Route path="/تعيين الألوان " element={<ColorMapping />} />
-              <Route path="/مخطط هرمى" element={<Pyramid />} />
-              <Route path="/مخطط مكدس" element={<Stacked />} />
-
-            </Routes>
-          </div>
-          {/* <Footer /> */}
-        </div>
-        
-      </div>
+      </Routes>
+      {/* <Dashboard /> */}
     </BrowserRouter>
-  </div>
-    </>
   )
 }
+
+
 

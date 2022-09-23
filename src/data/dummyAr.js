@@ -2,7 +2,7 @@ import React from 'react';
 import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
-import { BiColorFill } from 'react-icons/bi';
+import { BiColorFill, BiLogOut } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
@@ -490,52 +490,62 @@ export const links = [
       },
     ],
   },
-  {
-    title: 'الرسوم البيانية',
-    links: [
-      {
-       route:'line',
-        name: 'خطوط',
-        icon: <AiOutlineStock />,
-      },
-      {
-       route:'area',
-        name: 'مخطط المنطقة',
-        icon: <AiOutlineAreaChart />,
-      },
+  // {
+  //   title: 'الرسوم البيانية',
+  //   links: [
+  //     {
+  //      route:'line',
+  //       name: 'خطوط',
+  //       icon: <AiOutlineStock />,
+  //     },
+  //     {
+  //      route:'area',
+  //       name: 'مخطط المنطقة',
+  //       icon: <AiOutlineAreaChart />,
+  //     },
 
+  //     {
+  //      route:'bar',
+  //       name: 'منطقة',
+  //       icon: <AiOutlineBarChart />,
+  //     },
+  //     {
+  //      route:'pie',
+  //       name: 'مخطط دائري',
+  //       icon: <FiPieChart />,
+  //     },
+  //     {
+  //      route:"",
+  //       name: 'خط المخزون',
+  //       icon: <RiStockLine />,
+  //     },
+  //     {
+  //      route:'financial',
+  //       name: 'تعيين الألوان ',
+  //       icon: <BsBarChart />,
+  //     },
+  //     {
+  //      route:'color-mapping',
+  //       name: 'مخطط هرمى',
+  //       icon: <GiLouvrePyramid />,
+  //     },
+  //     {
+  //      route:'pyramid',
+  //       name: 'مخطط مكدس',
+  //       icon: <AiOutlineBarChart />,
+  //     },
+  //   ],
+  // },
+  {
+    title: '----------',
+    links:[
       {
-       route:'bar',
-        name: 'منطقة',
-        icon: <AiOutlineBarChart />,
+        route :"login",
+        name: 'تسجيل خروج',
+        icon: <BiLogOut />,
       },
-      {
-       route:'pie',
-        name: 'مخطط دائري',
-        icon: <FiPieChart />,
-      },
-      {
-       route:"",
-        name: 'خط المخزون',
-        icon: <RiStockLine />,
-      },
-      {
-       route:'financial',
-        name: 'تعيين الألوان ',
-        icon: <BsBarChart />,
-      },
-      {
-       route:'color-mapping',
-        name: 'مخطط هرمى',
-        icon: <GiLouvrePyramid />,
-      },
-      {
-       route:'pyramid',
-        name: 'مخطط مكدس',
-        icon: <AiOutlineBarChart />,
-      },
-    ],
-  },
+    ]
+  }
 ];
 
 export const cartData = [

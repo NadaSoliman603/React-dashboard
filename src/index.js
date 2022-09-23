@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UIControllerProvider } from './context';
 import { ContextProvider } from './context/ContextProvider';
+import { Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
